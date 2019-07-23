@@ -1,0 +1,9 @@
+package casestudy3;
+
+import org.testng.annotations.Test;
+
+public class OnlineShoppingCart {
+  @Test
+  public void f() {
+  }
+}

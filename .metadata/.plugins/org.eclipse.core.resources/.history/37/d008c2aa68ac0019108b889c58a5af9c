@@ -1,0 +1,29 @@
+package testng;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.Test;
+
+public class ExcelRead {
+  @Test
+  public void read() throws IOException {
+	  File src=new File("C:\\Users\\training_d2.03.07\\Desktop\\demo.xlsx.xlsx");
+	FileInputStream fop= new FileInputStream (src);
+	XSSFWorkbook workbook=new  XSSFWorkbook(fop);
+		XSSFSheet sheet1=workbook.getSheetAt(0);
+		int rowCount=sheet1.getLastRowNum();
+		System.out.println("no of rows:"+rowCount);
+		for(int i=0;i<rowCount;i++)
+		{
+			String data=sheet1.getRow(i).getCell(0).getStringCellValue();
+			System.out.println("excel data:"+data);
+			String data1=sheet1.getRow(i).getCell(1).getStringCellValue();
+			System.out.println("excel data:"+data1);
+		}
+  }
+}
